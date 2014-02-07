@@ -1,7 +1,24 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.to_do_list.app.MainActivity"
-    tools:ignore="MergeRootFrame" />
+    android:orientation="vertical"
+    tools:ignore="MergeRootFrame" >
+
+
+    <fragment
+        android:name="com.to_do_list.app.NewItemFragment"
+        android:id="@+id/NewItemFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <fragment
+        android:name="com.to_do_list.app.ToDoListFragment"
+        android:id="@+id/ToDoListFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    </LinearLayout>
