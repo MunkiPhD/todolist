@@ -31,7 +31,7 @@ public class MainActivity extends ActionBarActivity
         FragmentManager fragmentManager = getFragmentManager();
         ToDoListFragment toDoListFragment = (ToDoListFragment) fragmentManager.findFragmentById(R.id.ToDoListFragment);
 
-        _adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, _toDoItems);
+        _adapter = new ArrayAdapter<String>(this, R.layout.todolist_item, _toDoItems);
         toDoListFragment.setListAdapter(_adapter);
     }
 
