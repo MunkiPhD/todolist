@@ -46,8 +46,8 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
         TextView taskView = (TextView) todoView.findViewById(R.id.row);
 
         dateView.setText(dateString);
-        dateView.setText(taskString);
+        taskView.setText(taskString);
 
-        return dateView;
+        return todoView;
     }
 }

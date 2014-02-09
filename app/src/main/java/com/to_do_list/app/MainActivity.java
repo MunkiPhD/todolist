@@ -14,7 +14,7 @@ public class MainActivity extends Activity
         implements NewItemFragment.IOnNewItemAddedListener {
 
     private ArrayList<ToDoItem> _toDoItems;
-    private ArrayAdapter<ToDoItem> _adapter;
+    private ToDoItemAdapter _adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class MainActivity extends Activity
         FragmentManager fragmentManager = getFragmentManager();
         ToDoListFragment toDoListFragment = (ToDoListFragment) fragmentManager.findFragmentById(R.id.ToDoListFragment);
 
-        _adapter = new ArrayAdapter<ToDoItem>(this, R.layout.todolist_item, _toDoItems);
+        _adapter = new ToDoItemAdapter(this, R.layout.todolist_item, _toDoItems);
         toDoListFragment.setListAdapter(_adapter);
     }
 
