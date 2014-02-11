@@ -18,20 +18,20 @@ import java.util.ArrayList;
 public class MainActivity extends ActionBarActivity
         implements NewItemFragment.IOnNewItemAddedListener {
 
-    private ArrayList<String> _toDoItems;
-    private ArrayAdapter<String> _adapter;
+    private ArrayList<ToDoItem> _toDoItems;
+    private ArrayAdapter<ToDoItem> _adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        _toDoItems = new ArrayList<String>();
+        _toDoItems = new ArrayList<ToDoItem>();
 
         FragmentManager fragmentManager = getFragmentManager();
         ToDoListFragment toDoListFragment = (ToDoListFragment) fragmentManager.findFragmentById(R.id.ToDoListFragment);
 
-        _adapter = new ArrayAdapter<String>(this, R.layout.todolist_item, _toDoItems);
+        _adapter = new ArrayAdapter<ToDoItem>(this, R.layout.todolist_item, _toDoItems);
         toDoListFragment.setListAdapter(_adapter);
     }
 
@@ -58,7 +58,8 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     public void onNewItemAdded(String newItem) {
-        _toDoItems.add(newItem);
+        ToDoItem newToDoItem = new ToDoItem(newItem);
+        _toDoItems.add(0, newToDoItem);
         _adapter.notifyDataSetChanged();
     }
 }
